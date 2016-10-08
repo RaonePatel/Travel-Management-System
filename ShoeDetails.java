@@ -5,6 +5,8 @@ import java.awt.TextField;
 
 
 public class ShoeDetails extends Applet{
+	Graphics g;
+	
 	
 	private static final long serialVersionUID = 1L;
 	TextField name[];
