@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class Login extends HttpServlet {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/lohu","root","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_mng","root","root");
 			Statement stmt=con.createStatement();			
 			
 			String emailId= request.getParameter("emailId");
@@ -41,14 +42,17 @@ public class Login extends HttpServlet {
 			
 			System.out.println("sdadadads");
 			//stmt.executeUpdate(query);
-			if(stmt.executeQuery(query) != null)
-			{
-				System.out.println("null ma");
-			}
-			else
-			{
-				System.out.println("user Exist");
-			}
+			
+			stmt.executeQuery(query);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
+		    rd.forward(request, response); 
+			
+			
+			
+			System.out.println("done");
+			
+			
 		}
 		
 		catch(SQLException e)
