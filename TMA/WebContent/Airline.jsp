@@ -15,7 +15,6 @@ This is <h1> Airline </h1>Webpage<br>
 Date d=new Date();
 out.println(d.toString()); 
 
-
 %>  
 </form>
 </body>

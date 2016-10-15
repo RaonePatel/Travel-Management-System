@@ -2,8 +2,10 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.jdbc.PreparedStatement;
+
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	RetrieveData obj1 = new RetrieveData();
        
     public Login() {
         super();
@@ -32,57 +34,62 @@ public class Login extends HttpServlet {
 		
 		
 		try
-		{	
-			String emailId = null;
-			String password = null;
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_mng","root","root");
+			Statement stmt=con.createStatement();			
 			
-			try{
-				emailId = request.getParameter("emailId");
-				password = request.getParameter("password");
-				
-				obj1.method();
-			}
-			catch(Exception e){
-				e.printStackTrace();
-			}
+			String emailId= request.getParameter("emailId");
+			String password = request.getParameter("password");
 			
-			int ans = 0;
-			String databaseEmailId[] = new String[obj1.emailId.size()];
-			String databasePassword[] = new String[obj1.password.size()];
+			String query = "select emailId from userLogin where emailId='" + emailId + "' and password='" + password +"'";
+			//String query = "select emailId from userLogin;";
 			
-			for(int i=0; i<obj1.emailId.size(); i++){
-				databaseEmailId[i] = (String)obj1.emailId.get(i);
-				databasePassword[i] = (String)obj1.password.get(i);
-				
-				if(databaseEmailId[i].equals(emailId) && databasePassword[i].equals(password)){
-					ans = 1;
-					break;
-				}
-				else{
-					ans = 2;
-					continue;
-				}
-			}
-			if(ans == 1){
-				//System.out.println(" Login Successful");
+			System.out.println("sdadadads");
+			
+			ResultSet rs=stmt.executeQuery(query);
+			boolean st=rs.next();
+			
+			if(st)
+			{
+				System.out.print("Successfully found ");
+				System.out.println();
 				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
-				rd.forward(request, response);
+			    rd.forward(request, response); 
 			}
-			else if(ans == 2){
-				System.out.println(" Login Unsuccessful.. Try Again.");
-				System.exit(ans);
+			else
+			{
+				System.out.print("Not found.....");
+				out.write("Unauthorized User");
+				RequestDispatcher rd = request.getRequestDispatcher("Logout.jsp");
+			    rd.forward(request, response);
 			}
-			else if(ans == 0){
-				System.out.println(" Connection Unssuccful");
-				System.exit(ans);
+			
+			
+			
+			ResultSet rs2=stmt.executeQuery(query);
+			
+			while(rs2.next())
+			{
+				String temp=rs2.getString("emailId");
+				System.out.println(temp);
 			}
-			else{
-				System.out.println(" Something else Occured");
-				System.exit(ans);
-			}
-			System.out.println(" Done Comparison");
+			
+			System.out.println("done");
+			
+			
 		}
-		catch(Exception e){
+		
+		catch(SQLException e)
+		{
+			e.printStackTrace();	
+		} 
+		catch (ClassNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		catch(Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
