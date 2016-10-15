@@ -40,9 +40,11 @@ public class Airline implements ActionListener{
 		mb.add(view);
 		view.add(viewFlights);
 		view.add(yourTrip);
+
 		
-				
-		f.add(mb);		
+		
+		f.add(mb);
+		
 		
 		f.setLayout(null);  
 		f.setSize(500,500);  
@@ -55,6 +57,9 @@ public class Airline implements ActionListener{
 		{
 			FillDetailsFrame fnew=new FillDetailsFrame();
 			f.setVisible(false);
+			
+			
+			
 		}
 	}  
   
@@ -73,4 +78,6 @@ class FillDetailsFrame extends JFrame{
 		fnew.setTitle("Fill Details");
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 }
