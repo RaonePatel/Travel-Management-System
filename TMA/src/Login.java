@@ -42,7 +42,8 @@ public class Login extends HttpServlet {
 			String emailId= request.getParameter("emailId");
 			String password = request.getParameter("password");
 			
-			String query = "select emailId from userLogin where emailId='" + emailId + "' and password='" + password +"'";
+			//String query = "select emailId from userLogin where emailId='" + emailId + "' and password='" + password +"'";
+			String query = "select emailId from userLogin;";
 			
 			System.out.println("sdadadads");
 			
@@ -51,12 +52,22 @@ public class Login extends HttpServlet {
 			
 			if(st)
 			{
-				System.out.print("Success");
+				System.out.print("Successfully found ");
 				System.out.println();
 			}
 			else
 			{
-				System.out.print("Aa to na thyu");
+				System.out.print("Not found.....");
+			}
+			
+			
+			
+			ResultSet rs2=stmt.executeQuery(query);
+			
+			while(rs2.next())
+			{
+				String temp=rs2.getString("emailId");
+				System.out.println(temp);
 			}
 			
 			
