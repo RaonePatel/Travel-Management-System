@@ -21,7 +21,6 @@ public class Screen5 {
 	private JTextField lastName;
 	private JTextField contactNo;
 	
-
 	/**
 	 * Launch the application.
 	 */
@@ -113,10 +112,6 @@ public class Screen5 {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(firstName.getText());
 				System.out.println(emailId.getText());
-				
-				
-				
-				
 			}
 		});
 		btnNewButton.setBounds(31, 181, 89, 23);

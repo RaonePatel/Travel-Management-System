@@ -15,8 +15,6 @@ public class RetrieveData {
    ArrayList emailId=new ArrayList();
    ArrayList password=new ArrayList();
    
-   
-   
    public static void main(String[] args) {
    
 }//end main
@@ -50,15 +48,13 @@ public void method()
 	    	  emailId.add(rs.getString("emailId"));
 	    	  password.add(rs.getString("password"));
 	        
-
 	         //Display values
 	         //System.out.print("Name: " + name);
 	         //System.out.print(", Password: " + password + "\n");
-	         
-	   
-	        
 	      }
+	      
 	      rs.close();
+	      
 	   }catch(SQLException se){
 	      //Handle errors for JDBC
 	      se.printStackTrace();
@@ -79,5 +75,5 @@ public void method()
 	         se.printStackTrace();
 	      }//end finally try
 	   }//end try
-}
+	}
 }

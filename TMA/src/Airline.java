@@ -39,9 +39,7 @@ public class Airline implements ActionListener{
 		makeTrip.add(fillDetails);
 		mb.add(view);
 		view.add(viewFlights);
-		view.add(yourTrip);
-		
-				
+		view.add(yourTrip);	
 		f.add(mb);		
 		
 		f.setLayout(null);  

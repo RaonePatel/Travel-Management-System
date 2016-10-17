@@ -31,8 +31,6 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out= response.getWriter();
 		
-		
-		
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -44,8 +42,6 @@ public class Login extends HttpServlet {
 			
 			String query = "select emailId from userLogin where emailId='" + emailId + "' and password='" + password +"'";
 			//String query = "select emailId from userLogin;";
-			
-			System.out.println("sdadadads");
 			
 			ResultSet rs=stmt.executeQuery(query);
 			boolean st=rs.next();
@@ -62,10 +58,8 @@ public class Login extends HttpServlet {
 				System.out.print("Not found.....");
 				out.write("Unauthorized User");
 				RequestDispatcher rd = request.getRequestDispatcher("Logout.jsp");
-			    rd.forward(request, response);
+			    rd.include(request, response);
 			}
-			
-			
 			
 			ResultSet rs2=stmt.executeQuery(query);
 			
@@ -75,9 +69,7 @@ public class Login extends HttpServlet {
 				System.out.println(temp);
 			}
 			
-			System.out.println("done");
-			
-			
+			System.out.println("Done");
 		}
 		
 		catch(SQLException e)
