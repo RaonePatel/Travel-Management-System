@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -45,8 +46,7 @@ public void method()
 	         /*name  = rs.getString("name");
 	         password = rs.getString("password");*/
 	    	  
-	    	  emailId.add(rs.getString("emailId"));
-	    	  password.add(rs.getString("password"));
+	    	 
 	        
 	         //Display values
 	         //System.out.print("Name: " + name);
