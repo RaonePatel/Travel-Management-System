@@ -6,8 +6,10 @@ http-equiv="content-type">
 </head>
 <body>
 <p>asdasd</p>
-<form>Enter P_Id no <br>
-<input type="text">
+<form><a href="Airline.jsp">DashBoard</a><br><br>
+<a href= "viewFlights.jsp">View Flights</a>
+<a href= "searchYourFlight.jsp">View  Your Flights</a>
+
 <br>
 </form>
 </body>

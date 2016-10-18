@@ -43,6 +43,27 @@
 		<servlet-name>RetriveSpecificData</servlet-name>
 		<servlet-class>RetriveSpecificData</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>viewFlights</display-name>
+		<servlet-name>viewFlights</servlet-name>
+		<servlet-class>viewFlights</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>bookFlight</display-name>
+		<servlet-name>bookFlight</servlet-name>
+		<servlet-class>bookFlight</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>viewYourFlights</display-name>
+		<servlet-name>viewYourFlights</servlet-name>
+		<servlet-class>viewYourFlights</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>
@@ -72,6 +93,21 @@
 		<servlet-name>RetriveSpecificData</servlet-name>
 		<url-pattern>
 		/RetriveSpecificData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>viewFlights</servlet-name>
+		<url-pattern>
+		/viewFlights</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>bookFlight</servlet-name>
+		<url-pattern>
+		/bookFlight</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>viewYourFlights</servlet-name>
+		<url-pattern>
+		/viewYourFlights</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
