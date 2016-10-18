@@ -29,6 +29,13 @@
 		<servlet-name>InsertData</servlet-name>
 		<servlet-class>InsertData</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ReadData</display-name>
+		<servlet-name>ReadData</servlet-name>
+		<servlet-class>ReadData</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>
@@ -48,6 +55,11 @@
 		<servlet-name>InsertData</servlet-name>
 		<url-pattern>
 		/InsertData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReadData</servlet-name>
+		<url-pattern>
+		/ReadData</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
