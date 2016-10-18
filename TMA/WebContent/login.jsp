@@ -120,7 +120,7 @@ html {
 			</div>
 		</div>
 		
-		<script src="WEB-INF/js/login-form/index.js"></script>
+		<script src="WEB-INF/assets/js/login-form/index.js"></script>
 	
 	</body>
 </html>

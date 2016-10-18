@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -91,8 +89,7 @@ public class RetriveSpecificData extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("ViewDetails.jsp");
 		    rd.forward(request, response); 
-			
-			 
+				 
 		}
 		catch(SQLException e)
 		{
@@ -105,8 +102,6 @@ public class RetriveSpecificData extends HttpServlet {
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
 }
