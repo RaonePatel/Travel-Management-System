@@ -46,6 +46,5 @@ Gender<br>
   <br>
 </form>
 
-</body></html>
 </body>
 </html>

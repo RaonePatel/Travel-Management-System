@@ -54,13 +54,13 @@ public class InsertData extends HttpServlet {
 		String p_id= request.getParameter("p_id");
 		String first_name= request.getParameter("first_name");
 		String middle_name= request.getParameter("middle_name");
-		String surnmae= request.getParameter("surname");
+		String last_name= request.getParameter("last_name");
 		String address= request.getParameter("address");
 		String city= request.getParameter("city");
 		String state= request.getParameter("state");
 		long pincode= Integer.parseInt(request.getParameter("pincode"));
-		long contact_no= Integer.parseInt(request.getParameter("contact_no"));
-		String email_Id= request.getParameter("email_id");
+		String contact_no= request.getParameter("contact_no");
+		String emailId= request.getParameter("emailId");
 		String data_of_birth =request.getParameter("data_of_birth");
 		int age= Integer.parseInt(request.getParameter("age"));
 		String gender=request.getParameter("gender");
@@ -70,13 +70,13 @@ public class InsertData extends HttpServlet {
 		System.out.println(p_id);
 		System.out.println(first_name);
 		System.out.println(middle_name);
-		System.out.println(surnmae);
+		System.out.println(last_name);
 		System.out.println(address);
 		System.out.println(city);
 		System.out.println(state);
 		System.out.println(pincode);
 		System.out.println(contact_no);
-		System.out.println(email_Id);
+		System.out.println(emailId);
 		System.out.println(data_of_birth);
 		System.out.println(age);
 		System.out.println(gender);
@@ -85,18 +85,15 @@ public class InsertData extends HttpServlet {
 
 		
 		try {
-			String sql="insert into passenger_master values('"+p_id+"', '" +first_name+"',' "+ middle_name+" ', '"+surnmae+"', '"+address+"', '"+city+"', '"+state+"', '"+pincode+"', '"+contact_no+"', '"+email_Id+"', '"+age+"', '"+gender+"');";
-			ResultSet rs=stmt.executeQuery(sql);
-			boolean st=rs.next();
-			if(st)
-			{
-				System.out.println("Successfully Done");
-			}
-			else
-			{
-				System.out.println("Erro Somewhere");
-			}
+			String field="(p_id,first_name,middle_name,last_name,address,city,state,pincode,contact_no,emailId,data_of_birth,age,gender)";
+			String sql="insert into passenger_master"+field+" values('"+p_id+"', '" +first_name+"',' "+ middle_name+" ', '"+last_name+"', '"+address+"', '"+city+"', '"+state+"', '"+pincode+"', '"+contact_no+"', '"+emailId+"', '"+data_of_birth+"', '"+age+"', '"+gender+"');";
+			//ResultSet rs=stmt.executeQuery(sql);
+			stmt.executeUpdate(sql);
+			
+			//boolean st=rs;
+			System.out.println("Successfully done");
 		} catch (SQLException e) {
+			System.out.println("Error");
 			e.printStackTrace();
 		}
 		
@@ -106,6 +103,7 @@ public class InsertData extends HttpServlet {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+		
 		
 	}
 

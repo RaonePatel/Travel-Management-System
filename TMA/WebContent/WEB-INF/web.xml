@@ -36,6 +36,13 @@
 		<servlet-name>ReadData</servlet-name>
 		<servlet-class>ReadData</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>RetriveSpecificData</display-name>
+		<servlet-name>RetriveSpecificData</servlet-name>
+		<servlet-class>RetriveSpecificData</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>
@@ -60,6 +67,11 @@
 		<servlet-name>ReadData</servlet-name>
 		<url-pattern>
 		/ReadData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RetriveSpecificData</servlet-name>
+		<url-pattern>
+		/RetriveSpecificData</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

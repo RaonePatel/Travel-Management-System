@@ -112,7 +112,8 @@ html {
 						
 						<button type="submit" class="btn btn--right" name="Submit">Go</button>
 						<a href="Signup.jsp" target="_blank" title="Click to Register">
-					<button type="button" class="btn btn--right shift--left" name="Signin">Sign Up</button>
+					
+					<input type="button" class="btn btn--right shift--left" name="Signin" value="Sign Up" onclick="location.href = 'Signup.jsp';">
 					</a>
 					</div>
 				</form>
