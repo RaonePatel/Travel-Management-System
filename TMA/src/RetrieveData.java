@@ -3,6 +3,9 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class RetrieveData {
+	public RetrieveData() {
+	
+	}
    // JDBC driver name and database URL
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
    static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
@@ -11,18 +14,18 @@ public class RetrieveData {
    static final String USER = "username";	
    static final String PASS = "password";
    
-   //String name=null;
-   //String password=null;
-   ArrayList emailId=new ArrayList();
-   ArrayList password=new ArrayList();
+   
    
    public static void main(String[] args) {
+	   RetrieveData rd=new RetrieveData();
+	   rd.method();
    
 }//end main
 //end RetrieveData
 
 public void method()
 {
+	String arr[]=new String[12];
 	Connection conn = null;
 	   Statement stmt = null;
 	   try{
@@ -38,15 +41,24 @@ public void method()
 	      System.out.println("Creating statement...");
 	      stmt = conn.createStatement();
 
-	      String sql = "SELECT emailId,password from userlogin";
+	      //String sql = "SELECT emailId,password from userlogin";
+	      String sql= " select p_id,first_name,middle_name,last_name,address,city,state,pincode,contact_no,emailId, data_of_birth,age from passenger_master;";
+	      		//" where p_id='"+p_id+"';";
+	      
 	      ResultSet rs = stmt.executeQuery(sql);
 	      //STEP 5: Extract data from result set
 	      while(rs.next()){
 	         //Retrieve by column name
 	         /*name  = rs.getString("name");
 	         password = rs.getString("password");*/
-	    	  
-	    	 
+	    	   
+	    	System.out.println("\n\n");
+	    	String str;
+	    	for(int i=1;i<12;i++)
+	    	{
+	    		arr[i]=rs.getString(i);
+	    		
+	    	}
 	        
 	         //Display values
 	         //System.out.print("Name: " + name);
@@ -75,5 +87,8 @@ public void method()
 	         se.printStackTrace();
 	      }//end finally try
 	   }//end try
+	//return arr;
+	   
+	   //return str;
 	}
 }

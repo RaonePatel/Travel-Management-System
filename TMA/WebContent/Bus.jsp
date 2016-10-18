@@ -11,6 +11,7 @@ This is Bus Webpage<br>
 <% 
 
 %>
+<a href="addUser.html">Add user</a>
 </form>
 </body>
 </html>
